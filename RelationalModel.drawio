@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-04-17T22:37:37.574Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="0wSM0DFgxm5v8YidRJLX" version="17.4.5" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-17T22:40:44.243Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="vDUhAOGv4jny05d5qBuz" version="17.4.5" type="github">
   <diagram id="J5NFI8ycQX4mSOXD-UpD" name="Page-1">
-    <mxGraphModel dx="460" dy="776" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1422" dy="786" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -97,34 +97,33 @@
         <mxCell id="5n2HZgpS40tlZMhOb_HH-31" value="&lt;u&gt;reservation ID&lt;/u&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="440" y="590" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="5n2HZgpS40tlZMhOb_HH-32" value="Cancel Option" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="320" y="750" width="120" height="60" as="geometry" />
-        </mxCell>
         <mxCell id="5n2HZgpS40tlZMhOb_HH-33" value="Reservation" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="320" y="720" width="70" height="30" as="geometry" />
         </mxCell>
         <mxCell id="5n2HZgpS40tlZMhOb_HH-34" value="date" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="440" y="750" width="120" height="60" as="geometry" />
+          <mxGeometry x="320" y="750" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="5n2HZgpS40tlZMhOb_HH-35" value="&lt;u&gt;reservation ID&lt;/u&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="560" y="750" width="120" height="60" as="geometry" />
+          <mxGeometry x="440" y="750" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="5n2HZgpS40tlZMhOb_HH-37" value="guest nº" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="800" y="750" width="120" height="60" as="geometry" />
+          <mxGeometry x="560" y="750" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="5n2HZgpS40tlZMhOb_HH-38" value="room nº" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="920" y="750" width="120" height="60" as="geometry" />
+          <mxGeometry x="680" y="750" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="5n2HZgpS40tlZMhOb_HH-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="5n2HZgpS40tlZMhOb_HH-39" target="5n2HZgpS40tlZMhOb_HH-76" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1100" y="1490" />
+              <mxPoint x="860" y="910" />
+              <mxPoint x="1050" y="910" />
+              <mxPoint x="1050" y="1490" />
               <mxPoint x="380" y="1490" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="5n2HZgpS40tlZMhOb_HH-39" value="guest ID" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1040" y="750" width="120" height="60" as="geometry" />
+          <mxGeometry x="800" y="750" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="5n2HZgpS40tlZMhOb_HH-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" source="5n2HZgpS40tlZMhOb_HH-41" target="5n2HZgpS40tlZMhOb_HH-8" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -168,16 +167,16 @@
         <mxCell id="5n2HZgpS40tlZMhOb_HH-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="5n2HZgpS40tlZMhOb_HH-66" target="5n2HZgpS40tlZMhOb_HH-62" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1220" y="1010" />
+              <mxPoint x="980" y="1010" />
               <mxPoint x="380" y="1010" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="5n2HZgpS40tlZMhOb_HH-66" value="bill ID" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1160" y="750" width="120" height="60" as="geometry" />
+          <mxGeometry x="920" y="750" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="5n2HZgpS40tlZMhOb_HH-68" value="Pay date" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1280" y="750" width="120" height="60" as="geometry" />
+          <mxGeometry x="1040" y="750" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="5n2HZgpS40tlZMhOb_HH-70" value="&lt;u&gt;CC&lt;/u&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="320" y="1230" width="120" height="60" as="geometry" />
