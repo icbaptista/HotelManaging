@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-05-10T11:38:52.510Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36" etag="HLXLd_Tk-koXKviPPPa5" version="17.4.6" type="github">
+<mxfile host="app.diagrams.net" modified="2022-05-10T11:41:04.146Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36" etag="NF8Ltq8f7EJ31WaSpylR" version="17.4.6" type="github">
   <diagram id="PinD_ml9mgr7tShK1qHD" name="Page-1">
-    <mxGraphModel dx="2048" dy="672" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1543" dy="394" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -831,8 +831,8 @@
         <mxCell id="MB0tKZ8u3kS_eI6TlIKP-14" value="includes" style="shape=rhombus;double=1;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontSize=14;" parent="1" vertex="1">
           <mxGeometry x="223.02" y="1140" width="100" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="HJBaqApZNPYFLBtdkOuk-2" value="&lt;font style=&quot;font-size: 16px&quot;&gt;can go&lt;/font&gt;" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontSize=24;" parent="1" vertex="1">
-          <mxGeometry x="351.2499999999999" y="546.07" width="80" height="50" as="geometry" />
+        <mxCell id="HJBaqApZNPYFLBtdkOuk-2" value="&lt;font style=&quot;font-size: 8px&quot;&gt;Using Commodity&lt;/font&gt;" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontSize=24;" parent="1" vertex="1">
+          <mxGeometry x="340" y="541.07" width="100" height="57.07" as="geometry" />
         </mxCell>
         <mxCell id="HJBaqApZNPYFLBtdkOuk-3" value="" style="endArrow=none;html=1;rounded=0;fontSize=16;exitX=0.132;exitY=0.98;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="-5jy8KeP48rDacbd63ZV-1" target="HJBaqApZNPYFLBtdkOuk-2" edge="1">
           <mxGeometry relative="1" as="geometry">
