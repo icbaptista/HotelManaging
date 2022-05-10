@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-04-21T17:47:02.617Z" agent="5.0 (X11)" etag="-7On9TdLEn45REQ1XM2L" version="17.4.5" type="github">
+<mxfile host="app.diagrams.net" modified="2022-05-10T11:41:16.800Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36" etag="D6uuvdy2dbUkV1OiKQ5v" version="17.4.6" type="github">
   <diagram id="9mFbYB5lwKDQpRpTbYUD" name="Page-1">
-    <mxGraphModel dx="1649" dy="1209" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="830" dy="457" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -279,8 +279,8 @@
         <mxCell id="PQe7B0ciGgEA5CQLhy1C-91" value="&lt;u&gt;guest ID&lt;/u&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="403.92" y="1801" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="PQe7B0ciGgEA5CQLhy1C-92" value="Can Go" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="403.92" y="1771" width="60" height="30" as="geometry" />
+        <mxCell id="PQe7B0ciGgEA5CQLhy1C-92" value="Using Commodity" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="403.92" y="1771" width="106.08" height="30" as="geometry" />
         </mxCell>
         <mxCell id="PQe7B0ciGgEA5CQLhy1C-98" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.8;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="PQe7B0ciGgEA5CQLhy1C-93" target="PQe7B0ciGgEA5CQLhy1C-97" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -336,7 +336,7 @@
         <mxCell id="PQe7B0ciGgEA5CQLhy1C-110" value="Ending Time" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="643.92" y="2081" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="-5n4QXPLOLB1vBjLI2zP-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="-5n4QXPLOLB1vBjLI2zP-1" target="PQe7B0ciGgEA5CQLhy1C-25">
+        <mxCell id="-5n4QXPLOLB1vBjLI2zP-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="-5n4QXPLOLB1vBjLI2zP-1" target="PQe7B0ciGgEA5CQLhy1C-25" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="1424" y="600" />
@@ -344,13 +344,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="-5n4QXPLOLB1vBjLI2zP-1" value="room price" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="-5n4QXPLOLB1vBjLI2zP-1" value="room price" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1363.92" y="620" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="-5n4QXPLOLB1vBjLI2zP-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="-5n4QXPLOLB1vBjLI2zP-3" target="PQe7B0ciGgEA5CQLhy1C-42">
+        <mxCell id="-5n4QXPLOLB1vBjLI2zP-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="-5n4QXPLOLB1vBjLI2zP-3" target="PQe7B0ciGgEA5CQLhy1C-42" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="-5n4QXPLOLB1vBjLI2zP-3" value="package price" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="-5n4QXPLOLB1vBjLI2zP-3" value="package price" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="763.92" y="791" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
