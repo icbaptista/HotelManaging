@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-07T09:38:12.042Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="55EN5I1I7dxofBUJYXJZ" version="18.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-07T09:46:02.290Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="0IgUcJ6dwOjjUVbw9wA3" version="18.0.2" type="github">
   <diagram id="9mFbYB5lwKDQpRpTbYUD" name="Page-1">
     <mxGraphModel dx="1306" dy="617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -144,11 +144,8 @@
         <mxCell id="R_2CoJ_m2iPMEjmbAMO3-117" value="Bill" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="401" y="960" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="R_2CoJ_m2iPMEjmbAMO3-118" value="total cost" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="520.9999999999998" y="990" width="120" height="60" as="geometry" />
-        </mxCell>
         <mxCell id="R_2CoJ_m2iPMEjmbAMO3-120" value="pay date" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="640.9999999999998" y="990" width="120" height="60" as="geometry" />
+          <mxGeometry x="520.9999999999998" y="990" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="R_2CoJ_m2iPMEjmbAMO3-121" value="free breakfast" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="401" y="1161" width="120" height="60" as="geometry" />
