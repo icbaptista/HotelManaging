@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-07T09:28:56.424Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="8u6ZBQaZcZyQ6oxpoqKE" version="18.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-07T09:38:12.042Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="55EN5I1I7dxofBUJYXJZ" version="18.0.2" type="github">
   <diagram id="9mFbYB5lwKDQpRpTbYUD" name="Page-1">
     <mxGraphModel dx="1306" dy="617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -123,8 +123,8 @@
               <mxPoint x="941" y="1010" />
               <mxPoint x="1340" y="1010" />
               <mxPoint x="1340" y="1270" />
-              <mxPoint x="1120" y="1270" />
-              <mxPoint x="1120" y="1580" />
+              <mxPoint x="1130" y="1270" />
+              <mxPoint x="1130" y="1580" />
               <mxPoint x="454" y="1580" />
             </Array>
           </mxGeometry>
@@ -195,7 +195,7 @@
         <mxCell id="R_2CoJ_m2iPMEjmbAMO3-131" value="type ID" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1121" y="1161" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="R_2CoJ_m2iPMEjmbAMO3-135" value="name" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="R_2CoJ_m2iPMEjmbAMO3-135" value="First name" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="401" y="1321" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="R_2CoJ_m2iPMEjmbAMO3-136" value="Person" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
@@ -308,6 +308,9 @@
         </mxCell>
         <mxCell id="CXeuSiEuR1RZ0jyQG0M6-23" value="children no" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1360.9999999999998" y="821" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gWfZF-agg__h9yXaeQgV-1" value="Last Name" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1001" y="1321" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
