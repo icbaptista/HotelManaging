@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -8,6 +9,8 @@ namespace HotelUI
     {
         private int currentRoomType;
         private SqlConnection cn;
+        private int currentReservation = 100004; 
+
         public ChildRoom()
         {
             InitializeComponent();
@@ -15,8 +18,20 @@ namespace HotelUI
         }
 
         private void button1_Click(object sender, System.EventArgs e)
-        {
+        {  
+                Reservation r = new Reservation();
 
+                try
+                {
+                    r.reservation_ID = (currentReservation + 1).ToString();
+                    r.date_in = dateTimePicker2.Value.ToString("yyyy-MM-dd");
+                    r.date_out = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+                    r.guest_num = textPeople.Text;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
         }
 
         private SqlConnection getSGBDConnection()

@@ -34,13 +34,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textPeople = new System.Windows.Forms.TextBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtBeds = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.txtRoomType = new System.Windows.Forms.TextBox();
             this.txtVista = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -53,9 +53,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtBeds = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -102,37 +99,21 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Check out";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(552, 187);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(41, 27);
-            this.textBox1.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(490, 190);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Noites";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(353, 190);
+            this.label5.Location = new System.Drawing.Point(392, 190);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Pessoas";
             // 
-            // textBox2
+            // textPeople
             // 
-            this.textBox2.Location = new System.Drawing.Point(427, 187);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(42, 27);
-            this.textBox2.TabIndex = 11;
+            this.textPeople.Location = new System.Drawing.Point(466, 187);
+            this.textPeople.Name = "textPeople";
+            this.textPeople.Size = new System.Drawing.Size(42, 27);
+            this.textPeople.TabIndex = 11;
             // 
             // checkedListBox1
             // 
@@ -159,7 +140,6 @@
             // 
             this.groupBox1.Controls.Add(this.txtBeds);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtRoomType);
             this.groupBox1.Controls.Add(this.txtVista);
             this.groupBox1.Controls.Add(this.pictureBox1);
@@ -170,21 +150,35 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.checkedListBox1);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textPeople);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(239, 68);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(630, 375);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Reservar quarto";
+            // 
+            // txtBeds
+            // 
+            this.txtBeds.Location = new System.Drawing.Point(260, 187);
+            this.txtBeds.Name = "txtBeds";
+            this.txtBeds.Size = new System.Drawing.Size(43, 27);
+            this.txtBeds.TabIndex = 26;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(191, 190);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 20);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "Camas";
             // 
             // txtRoomType
             // 
@@ -216,7 +210,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 47);
             this.button1.TabIndex = 19;
-            this.button1.Text = "Proceder para checkout";
+            this.button1.Text = "Reservar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -295,31 +289,6 @@
             this.hScrollBar1.Size = new System.Drawing.Size(200, 29);
             this.hScrollBar1.TabIndex = 19;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(320, 240);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 20);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "label9";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(205, 190);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 20);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Camas";
-            // 
-            // txtBeds
-            // 
-            this.txtBeds.Location = new System.Drawing.Point(274, 187);
-            this.txtBeds.Name = "txtBeds";
-            this.txtBeds.Size = new System.Drawing.Size(43, 27);
-            this.txtBeds.TabIndex = 26;
-            // 
             // ChildRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -346,8 +315,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
@@ -367,6 +334,6 @@
         private System.Windows.Forms.HScrollBar hScrollBar1;
         private System.Windows.Forms.TextBox txtBeds;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textPeople;
     }
 }

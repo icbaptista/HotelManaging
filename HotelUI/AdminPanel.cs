@@ -28,8 +28,22 @@ namespace HotelUI
                 DataTable dtbl = new DataTable();
                 sqlDa.Fill(dtbl);
 
-                //method 2 : DG Columns
-                dataGridReservation.AutoGenerateColumns = false;
+                dataGridReservation.DataSource = dtbl; 
+
+            }
+        }
+
+        private void button2_Click(object sender, System.EventArgs e)
+        {
+            cn = getSGBDConnection();
+
+            using (cn)
+            {
+                cn.Open();
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM Reserved_Room", cn);
+                DataTable dtbl = new DataTable();
+                sqlDa.Fill(dtbl);
+
                 dataGridReservation.DataSource = dtbl;
 
             }

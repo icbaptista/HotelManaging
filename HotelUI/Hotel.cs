@@ -45,4 +45,9 @@
             return date_of_reservation + "   " + reservation_ID + "   " + reservor + "   " + guest_num;
         }
     }
+
+    internal class Guest
+    {
+        //internal string first
+    }
 }
