@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient; 
 
 namespace HotelUI
 {
     public partial class AdminLogin : Form
     {
-        private SqlConnection cn;
+        private SqlConnection con; 
         public AdminLogin()
         {
             InitializeComponent();
@@ -19,9 +21,33 @@ namespace HotelUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AdminPanel form = new AdminPanel();
-            form.Show();
-            this.Hide(); 
+            con = new SqlConnection();
+            con.ConnectionString = "Data Source=LAPTOP-8K6S8357; Initial Catalog = Hotel; Integrated Security = True";
+            con.Open();
+            string username = textBox1.Text;
+            string password = textBox2.Text;
+            SqlCommand cmd = new SqlCommand("select * from Staff where username like @username and passe = @password;", con);
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@password", password);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            con.Close();
+
+            bool loginSuccessful = ((ds.Tables.Count > 0) && (ds.Tables[0].Rows.Count > 0));
+
+            if (loginSuccessful)
+            {
+                MessageBox.Show("Successful Login!"); 
+                AdminPanel form = new AdminPanel();
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Login please check username and password");
+            }
+            con.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -30,48 +56,5 @@ namespace HotelUI
             form.Show();
             this.Hide(); 
         }
-        private void AdminPanel_Load()
-        {
-            cn = getSGBDConnection();
-        }
-
-        private SqlConnection getSGBDConnection()
-        {
-            return new SqlConnection("data source=CCWIN8\\SQL2012EXPRESS;integrated security=true;initial catalog=Hotel");
-        }
-
-        private bool verifySGBDConnection()
-        {
-            if (cn == null)
-                cn = getSGBDConnection();
-
-            if (cn.State != ConnectionState.Open)
-                cn.Open();
-
-            return cn.State == ConnectionState.Open;
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-             if (listBox1.SelectedIndex > 0)
-             {
-                if (!verifySGBDConnection())
-                    return;
-
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Reservation", cn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                listBox1.Items.Clear();
-
-                while (reader.Read())
-                {
-                    Reservation C = new Reservation();
-                    C = reader["reservation_ID"].ToString();
-                    listBox1.Items.Add(C);
-                }
-
-                cn.Close();
-            }
-        }
-
     }
 }

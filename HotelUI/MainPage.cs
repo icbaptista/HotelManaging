@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace HotelUI
@@ -19,14 +14,14 @@ namespace HotelUI
         {
             AdminLogin form = new AdminLogin();
             form.Show();
-            this.Hide(); 
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Reservation form = new Reservation();
+            Booking form = new Booking();
             form.Show();
-            this.Hide(); 
+            this.Hide();
         }
     }
 }

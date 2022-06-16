@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Data.SqlClient; 
 
 namespace HotelUI
 {
@@ -15,32 +10,29 @@ namespace HotelUI
         public AdminPanel()
         {
             InitializeComponent();
-            checkedListBox1.Items.Add("Sunday", CheckState.Checked);
-            checkedListBox1.Items.Add("Monday", CheckState.Unchecked);
-            checkedListBox1.Items.Add("Tuesday", CheckState.Indeterminate);
-        }
-
-        private void AdminPanel_Load() 
-        {
-            cn = getSGBDConnection();
-            
         }
 
         private SqlConnection getSGBDConnection()
         {
-            return new SqlConnection("data source=CCWIN8\\SQL2012EXPRESS;integrated security=true;initial catalog=Hotel");
+            return new SqlConnection("Data Source=LAPTOP-8K6S8357; Initial Catalog = Hotel; Integrated Security = True");
         }
 
-        private bool verifySGBDConnection()
+        private void button1_Click(object sender, System.EventArgs e)
         {
-            if (cn == null)
-                cn = getSGBDConnection();
+            cn = getSGBDConnection();
 
-            if (cn.State != ConnectionState.Open)
+            using (cn)
+            {
                 cn.Open();
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM Reservation", cn);
+                DataTable dtbl = new DataTable();
+                sqlDa.Fill(dtbl);
 
-            return cn.State == ConnectionState.Open;
+                //method 2 : DG Columns
+                dataGridReservation.AutoGenerateColumns = false;
+                dataGridReservation.DataSource = dtbl;
+
+            }
         }
-      
     }
 }

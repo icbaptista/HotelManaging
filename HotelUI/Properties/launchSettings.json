@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Perfil 1": {
+      "commandName": "Executable",
+      "nativeDebugging": true
+    },
+    "Perfil 2": {
+      "commandName": "Project"
+    }
+  }
+}
