@@ -38,14 +38,14 @@ namespace HotelUI
 
             if (loginSuccessful)
             {
-                MessageBox.Show("Successful Login!"); 
+                MessageBox.Show("Login bem sucedido!"); 
                 AdminPanel form = new AdminPanel();
                 form.Show();
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("Invalid Login please check username and password");
+                MessageBox.Show("Login inválido: verifique o username e a password!");
             }
             con.Close();
         }

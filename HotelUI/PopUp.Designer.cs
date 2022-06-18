@@ -31,16 +31,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textP = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textS = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textFN = new System.Windows.Forms.TextBox();
+            this.textLN = new System.Windows.Forms.TextBox();
+            this.textA = new System.Windows.Forms.TextBox();
+            this.textCC = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -67,6 +67,7 @@
             // 
             // label7
             // 
+            this.label7.BackColor = System.Drawing.Color.MediumPurple;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -77,13 +78,13 @@
             this.label7.Text = "Adicionar Hóspede";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox1
+            // textP
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(178, 327);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(70, 28);
-            this.comboBox1.TabIndex = 2;
+            this.textP.FormattingEnabled = true;
+            this.textP.Location = new System.Drawing.Point(178, 327);
+            this.textP.Name = "textP";
+            this.textP.Size = new System.Drawing.Size(70, 28);
+            this.textP.TabIndex = 2;
             // 
             // label2
             // 
@@ -112,13 +113,13 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Sexo";
             // 
-            // comboBox2
+            // textS
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(178, 203);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(70, 28);
-            this.comboBox2.TabIndex = 6;
+            this.textS.FormattingEnabled = true;
+            this.textS.Location = new System.Drawing.Point(178, 203);
+            this.textS.Name = "textS";
+            this.textS.Size = new System.Drawing.Size(70, 28);
+            this.textS.TabIndex = 6;
             // 
             // label5
             // 
@@ -129,33 +130,33 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Idade";
             // 
-            // textBox1
+            // textFN
             // 
-            this.textBox1.Location = new System.Drawing.Point(178, 122);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 8;
+            this.textFN.Location = new System.Drawing.Point(178, 122);
+            this.textFN.Name = "textFN";
+            this.textFN.Size = new System.Drawing.Size(125, 27);
+            this.textFN.TabIndex = 8;
             // 
-            // textBox2
+            // textLN
             // 
-            this.textBox2.Location = new System.Drawing.Point(178, 164);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 27);
-            this.textBox2.TabIndex = 9;
+            this.textLN.Location = new System.Drawing.Point(178, 164);
+            this.textLN.Name = "textLN";
+            this.textLN.Size = new System.Drawing.Size(125, 27);
+            this.textLN.TabIndex = 9;
             // 
-            // textBox3
+            // textA
             // 
-            this.textBox3.Location = new System.Drawing.Point(178, 246);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(70, 27);
-            this.textBox3.TabIndex = 10;
+            this.textA.Location = new System.Drawing.Point(178, 246);
+            this.textA.Name = "textA";
+            this.textA.Size = new System.Drawing.Size(70, 27);
+            this.textA.TabIndex = 10;
             // 
-            // textBox4
+            // textCC
             // 
-            this.textBox4.Location = new System.Drawing.Point(178, 289);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(125, 27);
-            this.textBox4.TabIndex = 11;
+            this.textCC.Location = new System.Drawing.Point(178, 289);
+            this.textCC.Name = "textCC";
+            this.textCC.Size = new System.Drawing.Size(125, 27);
+            this.textCC.TabIndex = 11;
             // 
             // label6
             // 
@@ -168,7 +169,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.SlateBlue;
+            this.button1.BackColor = System.Drawing.Color.MediumPurple;
             this.button1.ForeColor = System.Drawing.Color.GhostWhite;
             this.button1.Location = new System.Drawing.Point(124, 383);
             this.button1.Name = "button1";
@@ -181,19 +182,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(362, 441);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textCC);
+            this.Controls.Add(this.textA);
+            this.Controls.Add(this.textLN);
+            this.Controls.Add(this.textFN);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.textS);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textP);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "PopUp";
@@ -209,16 +211,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox textP;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox textS;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textFN;
+        private System.Windows.Forms.TextBox textLN;
+        private System.Windows.Forms.TextBox textA;
+        private System.Windows.Forms.TextBox textCC;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
     }

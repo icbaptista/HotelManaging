@@ -9,6 +9,7 @@ namespace HotelUI
 {
     public partial class ChildHotel : Form
     {
+        private int chosenHotel = 0;
         private SqlConnection cn; 
         public ChildHotel()
         {
@@ -64,6 +65,20 @@ namespace HotelUI
         private void hotel_dropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             DreamEscape_groupbox.Visible = true;
+            chosenHotel = 1; 
+        }
+
+        public int MyVar
+        {
+            get
+            {
+                return chosenHotel;
+            }
+            set
+            {
+                if (chosenHotel != value)
+                    chosenHotel = value;
+            }
         }
     }
 }

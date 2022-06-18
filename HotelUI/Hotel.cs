@@ -48,6 +48,40 @@
 
     internal class Guest
     {
-        //internal string first
+        internal string guest_id;
+        internal string CC;
+        internal string review;
+        internal string reserved_room_id;
+
+        public override string ToString()
+        {
+            return guest_id + "   " + reserved_room_id;
+        }
+    }
+
+    internal class Person
+    {
+        internal string firstname;
+        internal string lastname;
+        internal string CC;
+        internal string gender;	
+		internal string age;	
+		internal string cellphone;
+
+        public override string ToString()
+        {
+            return firstname + "   " + lastname;
+        }
+    }
+
+    internal class Reservor
+    {
+        internal string reservor_id;
+        internal string CC;
+
+        public override string ToString()
+        {
+            return reservor_id + "   " + CC;
+        }
     }
 }

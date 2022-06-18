@@ -9,12 +9,14 @@ namespace HotelUI
     {
         private int currentRoomType;
         private SqlConnection cn;
-        private int currentReservation = 100004; 
+        private int currentReservation = 100004;
+        public int myVar { get; set; }
 
         public ChildRoom()
         {
             InitializeComponent();
             loadRoomTypes();
+            vScroll.Scroll += new System.Windows.Forms.ScrollEventHandler(vScroll_Scroll);
         }
 
         private void button1_Click(object sender, System.EventArgs e)
@@ -23,10 +25,11 @@ namespace HotelUI
 
                 try
                 {
-                    r.reservation_ID = (currentReservation + 1).ToString();
-                    r.date_in = dateTimePicker2.Value.ToString("yyyy-MM-dd");
-                    r.date_out = dateTimePicker1.Value.ToString("yyyy-MM-dd");
-                    r.guest_num = textPeople.Text;
+                    //r.reservation_ID = (currentReservation + 1).ToString();
+                    //r.date_in = dateTimePicker2.Value.ToString("yyyy-MM-dd");
+                    //r.date_out = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+                    //r.guest_num = textPeople.Text;
+                    MessageBox.Show("Taking you to checkout!");
                 }
                 catch (Exception ex)
                 {
@@ -52,7 +55,8 @@ namespace HotelUI
 
 
         private void loadRoomTypes()
-        {
+        { 
+
             if (!verifySGBDConnection())
                 return;
 

@@ -12,8 +12,7 @@ namespace HotelUI
 {
     public partial class Booking : Form
     {
-       
-
+      
             private Button currentButton;
             private Form activeForm;
             public Booking()

@@ -52,3 +52,5 @@ C:\Users\ASUS\source\repos\HotelManaging\HotelUI\obj\Debug\net5.0-windows\refint
 C:\Users\ASUS\source\repos\HotelManaging\HotelUI\obj\Debug\net5.0-windows\HotelUI.pdb
 C:\Users\ASUS\source\repos\HotelManaging\HotelUI\obj\Debug\net5.0-windows\HotelUI.genruntimeconfig.cache
 C:\Users\ASUS\source\repos\HotelManaging\HotelUI\obj\Debug\net5.0-windows\ref\HotelUI.dll
+C:\Users\ASUS\source\repos\HotelManaging\HotelUI\obj\Debug\net5.0-windows\HotelUI.PopUp.resources
+C:\Users\ASUS\source\repos\HotelManaging\HotelUI\obj\Debug\net5.0-windows\HotelUI.Reservor.resources
