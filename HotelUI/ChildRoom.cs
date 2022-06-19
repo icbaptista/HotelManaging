@@ -536,5 +536,12 @@ namespace HotelUI
                 count_Button_Add_Guest++;
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MainPage f = new MainPage();
+            f.Show();
+            this.Hide();
+        }
     }
 }

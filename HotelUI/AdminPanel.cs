@@ -35,10 +35,17 @@ namespace HotelUI
             return cn.State == ConnectionState.Open;
         }
 
-        private void button1_Click(object sender, System.EventArgs e)
+        private void button1_Click(object sender, System.EventArgs e) // Reserva
         {
             cn = getSGBDConnection();
+            groupBox1.Enabled = false;
+            groupBox2.Enabled = true;
+            button5.Enabled = false;
+            button3.Enabled = true;
             buttonReservas = true;
+            buttonQuartos = false;
+            buttonGuests = false;
+            buttonReservors = false;
             using (cn)
             {
                 cn.Open();
@@ -51,16 +58,17 @@ namespace HotelUI
             }
         }
 
-        private void RemoveReservation()
+        private void RemoveReservors() // remover um reservor
         {
             if (!verifySGBDConnection())
                 return;
 
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "EXEC eliminar_Resorvors @CC";
+            cmd.CommandText = "EXEC eliminar_Reservor @CC, @reservorID";
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@CC", textBox1.Text);
+            cmd.Parameters.AddWithValue("@CC", textBox2.Text);
+            cmd.Parameters.AddWithValue("@reservorID", textBox1.Text);
             cmd.Connection = cn;
 
             try
@@ -77,10 +85,44 @@ namespace HotelUI
             }
         }
 
-        private void button2_Click(object sender, System.EventArgs e)
+        private void EditarReserva()
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "EXEC editar_reserva @reservaID, @date_in, @date_out";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@reservaID", textBox3.Text);
+            cmd.Parameters.AddWithValue("@date_in", textBox4.Text);
+            cmd.Parameters.AddWithValue("@date_out", textBox5.Text);
+            cmd.Connection = cn;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro a eliminar o Reservor. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        private void button2_Click(object sender, System.EventArgs e) // Reserved room
         {
             cn = getSGBDConnection();
+            groupBox1.Enabled = false;
+            groupBox2.Enabled = false;
+            button5.Enabled = false;
+            button3.Enabled = false;
+            buttonReservas = false;
             buttonQuartos = true;
+            buttonGuests = false;
+            buttonReservors = false;
             using (cn)
             {
                 cn.Open();
@@ -93,10 +135,17 @@ namespace HotelUI
             }
         }
 
-        private void button6_Click(object sender, System.EventArgs e)
+        private void button6_Click(object sender, System.EventArgs e) // Guests
         {
             cn = getSGBDConnection();
+            groupBox1.Enabled = false;
+            groupBox2.Enabled = false;
+            button5.Enabled = false;
+            button3.Enabled = false;
+            buttonReservas = false;
+            buttonQuartos = false;
             buttonGuests = true;
+            buttonReservors = false;
             using (cn)
             {
                 cn.Open();
@@ -123,10 +172,16 @@ namespace HotelUI
             this.Hide();
         }
 
-        private void button9_Click(object sender, System.EventArgs e)
+        private void button9_Click(object sender, System.EventArgs e) // Reservor
         {
             cn = getSGBDConnection();
-            groupBox1.Visible = true;
+            groupBox1.Enabled = true;
+            groupBox2.Enabled = false;
+            button5.Enabled = true;
+            button3.Enabled = false;
+            buttonReservas = false;
+            buttonQuartos = false;
+            buttonGuests = false;
             buttonReservors = true;
             using (cn)
             {
@@ -145,26 +200,54 @@ namespace HotelUI
 
         }
 
-        private void button5_Click(object sender, EventArgs e) // Para eliminar
+        private void button5_Click(object sender, EventArgs e) // Botão eliminar
         {
             if (buttonQuartos == true)
             {
-                //RemoveQuatos();
                 buttonQuartos = false;
             }
             else if (buttonGuests == true)
             {
-                //RemoveGuests();
                 buttonGuests = false;
             }
             else if (buttonReservas == true)
             {
-                //RemoveReservation();
                 buttonReservas = false;
             }
             else if (buttonReservors == true)
             {
-                //RemoveReservors();
+                RemoveReservors();
+                buttonReservors = false;
+            }
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (buttonQuartos == true)
+            {
+                buttonQuartos = false;
+            }
+            else if (buttonGuests == true)
+            {
+                buttonGuests = false;
+            }
+            else if (buttonReservas == true)
+            {
+                EditarReserva();
+                buttonReservas = false;
+            }
+            else if (buttonReservors == true)
+            {
                 buttonReservors = false;
             }
         }
