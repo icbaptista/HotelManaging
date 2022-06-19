@@ -22,6 +22,7 @@
         internal string size;
         internal string vista;
         internal string room_price;
+        internal string image;
 
         public override string ToString()
         {
@@ -29,7 +30,32 @@
         }
     }
 
-    public class Reservation 
+    public class Package
+    {
+        internal string package_ID;
+        internal string free_breakfast;
+        internal string meals_included;
+        internal string package_price;
+        internal string room_type_id;
+
+        public override string ToString()
+        {
+            return package_ID + "   " + free_breakfast;
+        }
+    }
+    public class Room
+    {
+        internal string room_no;
+        internal string room_id;
+        internal string room_type_id;
+        internal string nRNET;
+        public override string ToString()
+        {
+            return "Quarto disponível Nº: " + room_no;
+        }
+    }
+
+    public class Reservation
     {
         internal string reservation_ID;
         internal string package_ID;
@@ -38,7 +64,7 @@
         internal string reservor;
         internal string bill_ID;
         internal string date_in;
-        internal string date_out; 
+        internal string date_out;
 
         public override string ToString()
         {
@@ -64,24 +90,13 @@
         internal string firstname;
         internal string lastname;
         internal string CC;
-        internal string gender;	
-		internal string age;	
-		internal string cellphone;
+        internal string gender;
+        internal string age;
+        internal string cellphone;
 
         public override string ToString()
         {
             return firstname + "   " + lastname;
-        }
-    }
-
-    internal class Reservor
-    {
-        internal string reservor_id;
-        internal string CC;
-
-        public override string ToString()
-        {
-            return reservor_id + "   " + CC;
         }
     }
 }

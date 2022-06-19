@@ -14,7 +14,7 @@ namespace HotelUI
 
         private SqlConnection getSGBDConnection()
         {
-            return new SqlConnection("Data Source=LAPTOP-8K6S8357; Initial Catalog = Hotel; Integrated Security = True");
+            return new SqlConnection("Data Source=DESKTOP-CIMKDJM; Initial Catalog = Hotel; Integrated Security = True");
         }
 
         private void button1_Click(object sender, System.EventArgs e)

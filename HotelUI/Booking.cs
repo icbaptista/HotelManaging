@@ -32,14 +32,11 @@ namespace HotelUI
                 OpenChildForm(new ChildHotel(), sender);
             }
 
-            private void button2_Click(object sender, EventArgs e)
-            {
-                OpenChildForm(new ChildRoom(), sender);
-            }
-
             private void button3_Click(object sender, EventArgs e)
             {
-                OpenChildForm(new ChildCheckout(), sender);
+                ChildRoom form = new ChildRoom();
+                form.Show();
+                this.Hide();
             }
 
             private void OpenChildForm(Form childForm, object btnSender)

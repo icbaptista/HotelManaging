@@ -9,7 +9,6 @@ namespace HotelUI
 {
     public partial class ChildHotel : Form
     {
-        private int chosenHotel = 0;
         private SqlConnection cn; 
         public ChildHotel()
         {
@@ -25,7 +24,7 @@ namespace HotelUI
         
         private SqlConnection getSGBDConnection()
         {
-            return new SqlConnection("Data Source=LAPTOP-8K6S8357; Initial Catalog = Hotel; Integrated Security = True");
+            return new SqlConnection("Data Source=DESKTOP-CIMKDJM; Initial Catalog = Hotel; Integrated Security = True");
         }
 
         private bool verifySGBDConnection()
@@ -56,8 +55,7 @@ namespace HotelUI
                 A.descrição = reader["descrição"].ToString(); 
                 A.rating = reader["rating"].ToString();
                 hotel_dropdown.Items.Add(A);
-                description_box.Text = A.descrição.ToString(); 
-
+                description_box.Text = A.descrição.ToString();
             }
             cn.Close();
         }
@@ -65,20 +63,25 @@ namespace HotelUI
         private void hotel_dropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             DreamEscape_groupbox.Visible = true;
-            chosenHotel = 1; 
+            //chosenHotel = 1;
         }
 
-        public int MyVar
+        private void label1_Click(object sender, EventArgs e)
         {
-            get
-            {
-                return chosenHotel;
-            }
-            set
-            {
-                if (chosenHotel != value)
-                    chosenHotel = value;
-            }
+
         }
+
+        //public int MyVar
+        //{
+        //    get
+        //    {
+        //        return chosenHotel;
+        //    }
+        //    set
+        //    {
+        //        if (chosenHotel != value)
+        //            chosenHotel = value;
+        //    }
+        //}
     }
 }

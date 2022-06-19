@@ -454,24 +454,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\andre\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\HotelManaging\\HotelUI\\HotelUI.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\Desktop\\UNIVERSIDADE\\3º ANO\\BD\\PROJETO\\HotelManaging\\HotelUI\\HotelUI.csproj",
       "projectName": "HotelUI",
-      "projectPath": "C:\\Users\\ASUS\\source\\repos\\HotelManaging\\HotelUI\\HotelUI.csproj",
-      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\source\\repos\\HotelManaging\\HotelUI\\obj\\",
+      "projectPath": "C:\\Users\\andre\\Desktop\\UNIVERSIDADE\\3º ANO\\BD\\PROJETO\\HotelManaging\\HotelUI\\HotelUI.csproj",
+      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\andre\\Desktop\\UNIVERSIDADE\\3º ANO\\BD\\PROJETO\\HotelManaging\\HotelUI\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
