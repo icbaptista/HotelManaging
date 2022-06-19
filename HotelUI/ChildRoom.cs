@@ -10,8 +10,8 @@ namespace HotelUI
     {
         private int currentRoomType;
         private int currentRoom;
+        private int count_Button_Add_Guest = 0;
         private SqlConnection cn;
-        private int currentReservation = 100004;
         public string numeroHotel { get; set; }
 
         public ChildRoom()
@@ -36,6 +36,22 @@ namespace HotelUI
             return cn.State == ConnectionState.Open;
         }
 
+        public void ControlosReserva() // Meter tudo só readOnly
+        {
+            listBox1.Enabled = false;
+            groupBox1.Enabled = false;
+            groupBox2.Enabled = false;
+            groupBox3.Enabled = false;
+            textBox12.Enabled = false;
+        }
+
+        public void ControlosGuest() // Meter tudo só readOnly
+        {
+            button2.Visible = true;
+            button3.Visible = true;
+            groupBox4.Visible = true;
+            groupBox5.Visible = true;
+        }
 
         private void loadRoomTypes()
         { 
@@ -88,7 +104,7 @@ namespace HotelUI
             cn.Close();
         }
 
-        private void calculoNoites()
+        private void calculoNoitesEprecoTotal()
         {
             if (!verifySGBDConnection())
                 return;
@@ -100,9 +116,6 @@ namespace HotelUI
 
             while (reader.Read())
             {
-
-                //DateTime UltimaData = DateTime.Parse(reader["date_out"].ToString());
-                //DateTime PrimeiraData = DateTime.Parse(reader["date_in"].ToString());
 
                 DateTime UltimaData = dateTimePicker1.Value;
                 DateTime PrimeiraData = dateTimePicker2.Value;
@@ -147,7 +160,261 @@ namespace HotelUI
             currentRoom = 0;
         }
 
-        public void showRoomType() // Função que mostra as coisas nas boxes
+        private void CriarPessoa()// Isto vai ter de estar num botão para finalizar a reserva
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "INSERT INTO Person(firstname, lastname, CC, gender, age, cellphone) VALUES (@firstname, @lastname, @CC, @gender, @age, @cellphone);";
+            cmd.Parameters.AddWithValue("@firstname", textBox7.Text);
+            cmd.Parameters.AddWithValue("@lastname", textBox8.Text);
+            cmd.Parameters.AddWithValue("@CC", textBox9.Text);
+            cmd.Parameters.AddWithValue("@gender", textBox13.Text);
+            cmd.Parameters.AddWithValue("@age", textBox10.Text);
+            cmd.Parameters.AddWithValue("@cellphone", textBox11.Text);
+            cmd.Connection = cn;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao criar a Pessoa. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        private void CriarResorvor()// Isto vai ter de estar num botão para finalizar a reserva
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            SqlCommand cmdd = new SqlCommand("SELECT TOP 1 Reservor.reservor_id FROM Reservor ORDER BY Reservor.reservor_id DESC;", cn);
+
+            cmd.CommandText = "INSERT INTO Reservor(reservor_id, CC, email) VALUES (@reservor_id, @CC, @email);";
+
+            //https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.executescalar?view=dotnet-plat-ext-6.0
+            Int32 Reservor_ID = (Int32)cmdd.ExecuteScalar() + 1;
+
+            cmd.Parameters.AddWithValue("@reservor_id", Reservor_ID); // Talvez tenha de passar para string (?)
+            cmd.Parameters.AddWithValue("@CC", textBox9.Text);
+            cmd.Parameters.AddWithValue("@email", textBox1.Text);
+            cmd.Connection = cn;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao criar o Reservor. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
+        private void GerarUmaBill()// Isto vai ter de estar num botão para finalizar a reserva
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            SqlCommand cmdd = new SqlCommand("SELECT TOP 1 Bill.Bill_ID FROM Bill ORDER BY Bill.Bill_ID DESC;", cn);
+
+            Int32 BillID = (Int32)cmdd.ExecuteScalar() + 1;
+
+            cmd.CommandText = "INSERT INTO Bill(Bill_ID, paydate, totalCoast) VALUES (@Bill_ID, @paydate, @totalCoast);";
+            cmd.Parameters.AddWithValue("@Bill_ID", BillID);
+            cmd.Parameters.AddWithValue("@paydate", DateTime.Today);
+            cmd.Parameters.AddWithValue("@totalCoast", txtPrice.Text);
+            cmd.Connection = cn;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao gerar a Bill. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        private void GerarReserva()
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            SqlCommand cmdd = new SqlCommand("SELECT TOP 1 Reservation.reservation_ID FROM Reservation ORDER BY Reservation.reservation_ID DESC;", cn);
+            SqlCommand cmddd = new SqlCommand("SELECT TOP 1 Bill.Bill_ID FROM Bill ORDER BY Bill.Bill_ID DESC;", cn);
+            SqlCommand cmdddd = new SqlCommand("SELECT TOP 1 Reservor.reservor_id FROM Reservor ORDER BY Reservor.reservor_id DESC;", cn);
+
+            Int32 BillID = (Int32)cmddd.ExecuteScalar();
+            Int32 Reservor_ID = (Int32)cmdddd.ExecuteScalar();
+            Int32 ReservationID = (Int32)cmdd.ExecuteScalar() + 1;
+            
+            cmd.CommandText = "INSERT INTO Reservation(reservation_ID, package_ID, date_of_reservation, guest_num, reservor, bill_ID, date_in, date_out) VALUES (@reservation_ID, @package_ID, @date_of_reservation, @guest_num, @reservor, @bill_ID, @date_in, @date_out);";
+            cmd.Parameters.AddWithValue("@reservation_ID", ReservationID);
+            cmd.Parameters.AddWithValue("@package_ID", textBox5.Text);
+            cmd.Parameters.AddWithValue("@date_of_reservation", DateTime.Today);
+            cmd.Parameters.AddWithValue("@guest_num", numericUpDown1.Value);
+            cmd.Parameters.AddWithValue("@reservor", Reservor_ID);
+            cmd.Parameters.AddWithValue("@bill_ID", BillID);
+            cmd.Parameters.AddWithValue("@date_in", dateTimePicker2.Value);
+            cmd.Parameters.AddWithValue("@date_out", dateTimePicker1.Value);
+            cmd.Connection = cn;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao criar a reserva. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        private void GerarReservedRoom()
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            Room Room = new Room();
+            Room = (Room)listBox5.Items[currentRoom];
+
+            SqlCommand cmd = new SqlCommand();
+            SqlCommand cmdd = new SqlCommand("SELECT TOP 1 Reservation.reservation_ID FROM Reservation ORDER BY Reservation.reservation_ID DESC;", cn);
+
+            Int32 ReservationID = (Int32)cmdd.ExecuteScalar();
+
+            cmd.CommandText = "INSERT INTO Reserved_Room(reserved_room_id, check_in, check_out, reservation_ID) VALUES (@reserved_room_id, @check_in, @check_out, @reservation_ID);";
+            cmd.Parameters.AddWithValue("@reserved_room_id", Room.room_id);
+            cmd.Parameters.AddWithValue("@check_in", dateTimePicker2.Value);
+            cmd.Parameters.AddWithValue("@check_out", dateTimePicker1.Value);
+            cmd.Parameters.AddWithValue("@reservation_ID", ReservationID);
+            cmd.Connection = cn;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao criar reserved room. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        private void CriarPessoa_Guest()
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "INSERT INTO Person(firstname, lastname, CC, gender, age, cellphone) VALUES (@firstname, @lastname, @CC, @gender, @age, @cellphone);";
+            cmd.Parameters.AddWithValue("@firstname", textBox14.Text);
+            cmd.Parameters.AddWithValue("@lastname", textBox15.Text);
+            cmd.Parameters.AddWithValue("@CC", textBox16.Text);
+            cmd.Parameters.AddWithValue("@gender", textBox17.Text);
+            cmd.Parameters.AddWithValue("@age", textBox19.Text);
+            cmd.Parameters.AddWithValue("@cellphone", textBox18.Text);
+            cmd.Connection = cn;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao criar a Pessoa. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        private void GerarGuest()
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            SqlCommand cmdd = new SqlCommand("SELECT TOP 1 Guest.guest_id FROM Guest ORDER BY Guest.guest_id DESC;", cn);
+
+            Room Room = new Room();
+            Room = (Room)listBox5.Items[currentRoom];
+
+            Int32 GuestID = (Int32)cmdd.ExecuteScalar() + 1;
+
+            cmd.CommandText = "INSERT INTO Guest(guest_id, CC, review, reserved_room_id) VALUES (@guest_id, @CC, @review, @reserved_room_id);";
+            cmd.Parameters.AddWithValue("@guest_id", GuestID);
+            cmd.Parameters.AddWithValue("@CC", textBox16.Text);
+            cmd.Parameters.AddWithValue("@review", textBox20.Text);
+            cmd.Parameters.AddWithValue("@reserved_room_id", Room.room_id);
+            cmd.Connection = cn;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao Gerar Guest. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
+        private void GuestsAdicionados()
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Guest WHERE Guest.reserved_room_id = @ReservedRoomID;", cn);
+
+            Room Room = new Room();
+            Room = (Room)listBox5.Items[currentRoom];
+
+            cmd.Parameters.AddWithValue("@ReservedRoomID", Room.room_id);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Guest G = new Guest();
+                G.guest_id = reader["guest_id"].ToString();
+                G.CC = reader["CC"].ToString();
+                G.review = reader["review"].ToString();
+                G.reserved_room_id = reader["reserved_room_id"].ToString();
+                listBox2.Items.Add(G);
+            }
+
+        }
+
+            public void showRoomType() // Função que mostra as coisas nas boxes
         {
             if (listBox1.Items.Count == 0 | currentRoomType < 0)
                 return;
@@ -158,7 +425,7 @@ namespace HotelUI
             txtBeds.Text = room.beds_no;
             textBox12.Text = room.room_price;
             loadRoomPackages();
-            calculoNoites();
+            calculoNoitesEprecoTotal();
             QuartosDisponíveis();
 
         }
@@ -232,54 +499,41 @@ namespace HotelUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e) // Botao de adicionar os dados do resevor
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (!verifySGBDConnection())
-                return;
-            SqlCommand cmd = new SqlCommand();
-            SqlCommand cmdd = new SqlCommand("SELECT TOP 1 Reservor.reservor_id FROM Reservor ORDER BY Reservor.reservor_id DESC;"); // Vai buscar o ultimo ID do reservor
+            button1.Enabled = false;
+            CriarPessoa();
+            CriarResorvor();
+            GerarUmaBill();
+            GerarReserva();
+            GerarReservedRoom();
+            ControlosReserva(); // Dá desable à reserva para nao serem feitas mais modificações
+            ControlosGuest(); // Aparece a parte para adicionar guests
 
-            if (!cmd.Parameters.Contains(textBox9.Text)) // Se o CC nao existir criamos
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Reserva Concluida, Obrigado!");
+            MainPage form = new MainPage();
+            form.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Room_Type room = new Room_Type();
+            room = (Room_Type)listBox1.Items[currentRoomType];
+            if (numericUpDown1.Value <= 0 || Int32.Parse(room.max_capacity) == 0 || count_Button_Add_Guest == numericUpDown1.Value) // Se o número de guests é menor ou igual a 0, o buttao fica desativado
             {
-                
-                cmd.CommandText = "INSERT INTO Hotel.Person(firstname,lastname,CC,gender,age,cellphone) VALUES ( @firstname, @lastname, @CC, @gender, @age, @cellphone)";
-                cmd.Parameters.AddWithValue("@firstname", textBox7.Text);
-                cmd.Parameters.AddWithValue("@lastname", textBox8.Text);
-                cmd.Parameters.AddWithValue("@CC", textBox9.Text);
-                cmd.Parameters.AddWithValue("@gender", textBox13.Text);
-                cmd.Parameters.AddWithValue("@age", textBox10.Text);
-                cmd.Parameters.AddWithValue("@cellphone", textBox11.Text);
-
-                cmdd.CommandText = "INSERT INTO Hotel.Reservor(reservor_id,CC,email) VALUES (@reservor_id,@CC,@email)";
-                cmdd.Parameters.AddWithValue("@CC", textBox9.Text);
-                cmdd.Parameters.AddWithValue("@email", textBox1.Text);
-
-                cn.Open();
-                object ReservorID = cmdd.ExecuteScalar(); // ESTÁ A DAR ERRO AQUI
-                int ReservorID_int = Convert.ToInt32(ReservorID);
-                // https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/obtaining-a-single-value-from-a-database
-                cmdd.Parameters.AddWithValue("@reservor_id", ReservorID_int + 1);
-
+                button2.Enabled = false;
             }
-            else // Se existir eliminamoos e metemos again
+            else
             {
-                cmd.CommandText = "EXEC eliminar_Reservor @CC";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@CC", textBox9.Text);
-                cmd.Connection = cn;
-
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Ocorreu Um erro. \n ERROR MESSAGE: \n" + ex.Message);
-                }
-                finally
-                {
-                    cn.Close();
-                }
+                CriarPessoa_Guest();
+                GerarGuest();
+                GuestsAdicionados();
+                count_Button_Add_Guest++;
             }
         }
     }

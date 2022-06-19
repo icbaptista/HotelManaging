@@ -26,7 +26,7 @@
 
         public override string ToString()
         {
-            return typology + "   " + beds_no + "   " + size + "   " + vista;
+            return typology + "   " + beds_no + "   " + size + "   " + vista + "    " + max_capacity;
         }
     }
 
@@ -55,6 +55,18 @@
         }
     }
 
+    public class Reserved_Room
+    {
+        internal string reserved_room_id;
+        internal string check_in;
+        internal string check_out;
+        internal string reservation_ID;
+        public override string ToString()
+        {
+            return reserved_room_id;
+        }
+    }
+
     public class Reservation
     {
         internal string reservation_ID;
@@ -72,7 +84,7 @@
         }
     }
 
-    internal class Guest
+    public class Guest
     {
         internal string guest_id;
         internal string CC;
@@ -81,11 +93,11 @@
 
         public override string ToString()
         {
-            return guest_id + "   " + reserved_room_id;
+            return "Guest:" + guest_id + " associado ao quarto " + reserved_room_id;
         }
     }
 
-    internal class Person
+    public class Person
     {
         internal string firstname;
         internal string lastname;
