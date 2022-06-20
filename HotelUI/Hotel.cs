@@ -1,4 +1,6 @@
-﻿namespace HotelUI
+﻿using System;
+
+namespace HotelUI
 {
     public class Hotel
     {
@@ -22,7 +24,6 @@
         internal string size;
         internal string vista;
         internal string room_price;
-        internal string image;
 
         public override string ToString()
         {
@@ -51,7 +52,7 @@
         internal string nRNET;
         public override string ToString()
         {
-            return "Quarto disponível Nº: " + room_no;
+            return "Disponível: Quarto nº " + room_no + ", Piso = " + room_id.ToCharArray()[0] + ", Porta = " + room_id.ToCharArray()[1];
         }
     }
 
@@ -91,9 +92,17 @@
         internal string review;
         internal string reserved_room_id;
 
+        public Guest(string guest_id, string CC, string review, string reserved_room_id)
+        {
+            this.guest_id = guest_id;
+            this.reserved_room_id = reserved_room_id;
+            this.CC = CC;
+            this.review = review; 
+        }
+
         public override string ToString()
         {
-            return "Guest:" + guest_id + " associado ao quarto " + reserved_room_id;
+            return "Guest " + guest_id + " hospedado no quarto " + reserved_room_id + "!";
         }
     }
 

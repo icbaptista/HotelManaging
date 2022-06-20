@@ -16,9 +16,6 @@
     <Compile Update="Booking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ChildCheckout.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="ChildHotel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -31,7 +28,7 @@
     <Compile Update="PopUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Reservor.cs">
+    <Compile Update="Temp.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

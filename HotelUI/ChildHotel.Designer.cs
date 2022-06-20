@@ -137,6 +137,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.hotel_dropdown);
             this.Name = "ChildHotel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hotel";
             this.Load += new System.EventHandler(this.ChildHotel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

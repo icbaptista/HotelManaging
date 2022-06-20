@@ -81,7 +81,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(250, 90);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Avançar";
+            this.button3.Text = "Reserva";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -129,7 +129,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(858, 90);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Veja o nosso Hotel";
+            this.lblTitle.Text = "RESERVAS";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelDesktopPane
@@ -149,6 +149,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
             this.Name = "Booking";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Booking";
             this.panelMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

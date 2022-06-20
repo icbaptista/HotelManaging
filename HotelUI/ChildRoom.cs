@@ -13,16 +13,25 @@ namespace HotelUI
         private int count_Button_Add_Guest = 0;
         private SqlConnection cn;
         public string numeroHotel { get; set; }
-
+        private Int32 BillID;
+        private Int32 GuestID; 
+        
         public ChildRoom()
         {
             InitializeComponent();
             loadRoomTypes();
         }
 
+        private void ChildRoom_Load() {
+            Label_pay.Visible = false;
+            pay_mastercard.Visible = false;
+            pay_paypal.Visible = false;
+            pay_visa.Visible = false;
+        }
+
         private SqlConnection getSGBDConnection()
         {
-            return new SqlConnection("Data Source=DESKTOP-CIMKDJM; Initial Catalog = Hotel; Integrated Security = True");
+            return new SqlConnection("Data Source = LAPTOP-8K6S8357; Initial Catalog = Hotel; Integrated Security = True");
         }
 
         private bool verifySGBDConnection()
@@ -45,6 +54,7 @@ namespace HotelUI
             textBox12.Enabled = false;
         }
 
+       
         public void ControlosGuest() // Meter tudo só readOnly
         {
             button2.Visible = true;
@@ -102,6 +112,11 @@ namespace HotelUI
 
             }
             cn.Close();
+        }
+
+        internal void receiveData(Guest g)
+        {
+            listBox2.Items.Add(g.ToString());
         }
 
         private void calculoNoitesEprecoTotal()
@@ -189,7 +204,7 @@ namespace HotelUI
             }
         }
 
-        private void CriarResorvor()// Isto vai ter de estar num botão para finalizar a reserva
+        private void CriarReservor()// Isto vai ter de estar num botão para finalizar a reserva
         {
             if (!verifySGBDConnection())
                 return;
@@ -202,7 +217,7 @@ namespace HotelUI
             //https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.executescalar?view=dotnet-plat-ext-6.0
             Int32 Reservor_ID = (Int32)cmdd.ExecuteScalar() + 1;
 
-            cmd.Parameters.AddWithValue("@reservor_id", Reservor_ID); // Talvez tenha de passar para string (?)
+            cmd.Parameters.AddWithValue("@reservor_id", Reservor_ID.ToString()); // Talvez tenha de passar para string (?)
             cmd.Parameters.AddWithValue("@CC", textBox9.Text);
             cmd.Parameters.AddWithValue("@email", textBox1.Text);
             cmd.Connection = cn;
@@ -230,13 +245,18 @@ namespace HotelUI
             SqlCommand cmd = new SqlCommand();
             SqlCommand cmdd = new SqlCommand("SELECT TOP 1 Bill.Bill_ID FROM Bill ORDER BY Bill.Bill_ID DESC;", cn);
 
-            Int32 BillID = (Int32)cmdd.ExecuteScalar() + 1;
+            BillID = (Int32)cmdd.ExecuteScalar() + 1;
 
             cmd.CommandText = "INSERT INTO Bill(Bill_ID, paydate, totalCoast) VALUES (@Bill_ID, @paydate, @totalCoast);";
-            cmd.Parameters.AddWithValue("@Bill_ID", BillID);
+            cmd.Parameters.AddWithValue("@Bill_ID", BillID.ToString());
             cmd.Parameters.AddWithValue("@paydate", DateTime.Today);
             cmd.Parameters.AddWithValue("@totalCoast", txtPrice.Text);
             cmd.Connection = cn;
+
+            Label_pay.Visible = true; 
+            pay_mastercard.Visible = true;
+            pay_paypal.Visible = true;
+            pay_visa.Visible = true;
 
             try
             {
@@ -262,17 +282,18 @@ namespace HotelUI
             SqlCommand cmddd = new SqlCommand("SELECT TOP 1 Bill.Bill_ID FROM Bill ORDER BY Bill.Bill_ID DESC;", cn);
             SqlCommand cmdddd = new SqlCommand("SELECT TOP 1 Reservor.reservor_id FROM Reservor ORDER BY Reservor.reservor_id DESC;", cn);
 
-            Int32 BillID = (Int32)cmddd.ExecuteScalar();
+
+            BillID = (Int32)cmddd.ExecuteScalar();
             Int32 Reservor_ID = (Int32)cmdddd.ExecuteScalar();
             Int32 ReservationID = (Int32)cmdd.ExecuteScalar() + 1;
             
             cmd.CommandText = "INSERT INTO Reservation(reservation_ID, package_ID, date_of_reservation, guest_num, reservor, bill_ID, date_in, date_out) VALUES (@reservation_ID, @package_ID, @date_of_reservation, @guest_num, @reservor, @bill_ID, @date_in, @date_out);";
-            cmd.Parameters.AddWithValue("@reservation_ID", ReservationID);
+            cmd.Parameters.AddWithValue("@reservation_ID", ReservationID.ToString());
             cmd.Parameters.AddWithValue("@package_ID", textBox5.Text);
             cmd.Parameters.AddWithValue("@date_of_reservation", DateTime.Today);
             cmd.Parameters.AddWithValue("@guest_num", numericUpDown1.Value);
-            cmd.Parameters.AddWithValue("@reservor", Reservor_ID);
-            cmd.Parameters.AddWithValue("@bill_ID", BillID);
+            cmd.Parameters.AddWithValue("@reservor", Reservor_ID.ToString());
+            cmd.Parameters.AddWithValue("@bill_ID", BillID.ToString());
             cmd.Parameters.AddWithValue("@date_in", dateTimePicker2.Value);
             cmd.Parameters.AddWithValue("@date_out", dateTimePicker1.Value);
             cmd.Connection = cn;
@@ -359,16 +380,16 @@ namespace HotelUI
             if (!verifySGBDConnection())
                 return;
 
-            SqlCommand cmd = new SqlCommand();
-            SqlCommand cmdd = new SqlCommand("SELECT TOP 1 Guest.guest_id FROM Guest ORDER BY Guest.guest_id DESC;", cn);
+       
+            SqlCommand cmd = new SqlCommand("SELECT TOP 1 Guest.guest_id FROM Guest ORDER BY Guest.guest_id DESC;", cn);
 
             Room Room = new Room();
             Room = (Room)listBox5.Items[currentRoom];
 
-            Int32 GuestID = (Int32)cmdd.ExecuteScalar() + 1;
+            GuestID = (Int32)cmd.ExecuteScalar() + count_Button_Add_Guest;
 
             cmd.CommandText = "INSERT INTO Guest(guest_id, CC, review, reserved_room_id) VALUES (@guest_id, @CC, @review, @reserved_room_id);";
-            cmd.Parameters.AddWithValue("@guest_id", GuestID);
+            cmd.Parameters.AddWithValue("@guest_id", GuestID.ToString());
             cmd.Parameters.AddWithValue("@CC", textBox16.Text);
             cmd.Parameters.AddWithValue("@review", textBox20.Text);
             cmd.Parameters.AddWithValue("@reserved_room_id", Room.room_id);
@@ -377,6 +398,8 @@ namespace HotelUI
             try
             {
                 cmd.ExecuteNonQuery();
+                Guest g = new Guest(GuestID.ToString(), textBox16.Text, textBox20.Text, Room.room_id.ToString());
+                listBox2.Items.Add(g.ToString());
             }
             catch (Exception ex)
             {
@@ -386,8 +409,8 @@ namespace HotelUI
             {
                 cn.Close();
             }
-
         }
+
 
         private void GuestsAdicionados()
         {
@@ -402,19 +425,9 @@ namespace HotelUI
             cmd.Parameters.AddWithValue("@ReservedRoomID", Room.room_id);
             SqlDataReader reader = cmd.ExecuteReader();
 
-            while (reader.Read())
-            {
-                Guest G = new Guest();
-                G.guest_id = reader["guest_id"].ToString();
-                G.CC = reader["CC"].ToString();
-                G.review = reader["review"].ToString();
-                G.reserved_room_id = reader["reserved_room_id"].ToString();
-                listBox2.Items.Add(G);
-            }
-
         }
 
-            public void showRoomType() // Função que mostra as coisas nas boxes
+        public void showRoomType() // Função que mostra as coisas nas boxes
         {
             if (listBox1.Items.Count == 0 | currentRoomType < 0)
                 return;
@@ -422,7 +435,7 @@ namespace HotelUI
             room = (Room_Type) listBox1.Items[currentRoomType];
             txtRoomType.Text = room.typology;
             txtVista.Text = room.vista;
-            txtBeds.Text = room.beds_no;
+            txtBeds.Text = room.max_capacity;
             textBox12.Text = room.room_price;
             loadRoomPackages();
             calculoNoitesEprecoTotal();
@@ -501,30 +514,31 @@ namespace HotelUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            button1.Enabled = false;
-            CriarPessoa();
-            CriarResorvor();
-            GerarUmaBill();
-            GerarReserva();
-            GerarReservedRoom();
-            ControlosReserva(); // Dá desable à reserva para nao serem feitas mais modificações
-            ControlosGuest(); // Aparece a parte para adicionar guests
+            if (numericUpDown1.Value == 0)
+            {
+                MessageBox.Show("Adicione pelo menos um hóspede!");
+            }
+            else
+            {
 
-        }
+                button1.Enabled = false;
+                CriarPessoa();
+                CriarReservor();
+                GerarUmaBill();
+                GerarReserva();
+                GerarReservedRoom();
+                ControlosReserva(); // Dá desable à reserva para nao serem feitas mais modificações
+                ControlosGuest(); // Aparece a parte para adicionar guests
+            }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Reserva Concluida, Obrigado!");
-            MainPage form = new MainPage();
-            form.Show();
-            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Room_Type room = new Room_Type();
             room = (Room_Type)listBox1.Items[currentRoomType];
-            if (numericUpDown1.Value <= 0 || Int32.Parse(room.max_capacity) == 0 || count_Button_Add_Guest == numericUpDown1.Value) // Se o número de guests é menor ou igual a 0, o buttao fica desativado
+            count_Button_Add_Guest++;   
+            if (numericUpDown1.Value <= 0 || Int32.Parse(txtBeds.Text) == 0) // Se o número de guests é menor ou igual a 0, o buttao fica desativado
             {
                 button2.Enabled = false;
             }
@@ -533,7 +547,6 @@ namespace HotelUI
                 CriarPessoa_Guest();
                 GerarGuest();
                 GuestsAdicionados();
-                count_Button_Add_Guest++;
             }
         }
 
@@ -542,6 +555,112 @@ namespace HotelUI
             MainPage f = new MainPage();
             f.Show();
             this.Hide();
+        }
+
+        private void pay_mastercard_Click(object sender, EventArgs e)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+
+            /*SqlCommand cmd = new SqlCommand("SELECT pay_date from Bill where Bill_ID=@BillID", cn);
+
+            / SqlDataReader reader = cmd.ExecuteReader();
+            if (reader["pay_date"].ToString().Equals("NULL"))
+            {
+                cmd.CommandText = "UPDATE Bill SET pay_date=@datetoday where Bill_ID=@BillID; ";
+                cmd.Parameters.AddWithValue("@datetoday", DateTime.Today);
+                cmd.Connection = cn;
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Pagamento Efetuado e Reserva Concluída!");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Erro ao realizar o pagamento. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else {
+                MessageBox.Show("Já foi paga a reserva! Obrigada!");
+            }*/
+            MessageBox.Show("Pagamento Efetuado e Reserva Concluída!");
+        }
+
+        private void pay_paypal_Click(object sender, EventArgs e)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+
+            /*SqlCommand cmd = new SqlCommand("SELECT pay_date from Bill where Bill_ID=@BillID", cn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader["pay_date"].ToString().Equals("NULL"))
+            {
+                cmd.CommandText = "UPDATE Bill SET pay_date=@datetoday where Bill_ID=@BillID; ";
+                cmd.Parameters.AddWithValue("@datetoday", DateTime.Today);
+                cmd.Connection = cn;
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Pagamento Efetuado e Reserva Concluída!"); 
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Erro ao realizar o pagamento. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Já foi paga a reserva! Obrigada!");
+            }*/
+            MessageBox.Show("Pagamento Efetuado e Reserva Concluída!");
+        }
+
+        private void pay_visa_Click(object sender, EventArgs e)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            /*SqlCommand cmd = new SqlCommand("SELECT pay_date from Bill where Bill_ID=@BillID", cn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader["pay_date"].ToString().Equals("NULL"))
+            {
+                cmd.CommandText = "UPDATE Bill SET pay_date=@datetoday where Bill_ID=@BillID; ";
+                cmd.Parameters.AddWithValue("@datetoday", DateTime.Today);
+                cmd.Connection = cn;
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Pagamento Efetuado e Reserva Concluída!");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Erro ao realizar o pagamento. \n ERROR MESSAGE: \n" + ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Já foi paga a reserva! Obrigada!");
+            }*/
+            MessageBox.Show("Pagamento Efetuado e Reserva Concluída!");
         }
     }
 }
