@@ -138,10 +138,10 @@ namespace HotelUI
                 string differenceInDays_string = differenceInDays.ToString();
 
                 textBox4.Text = differenceInDays_string;
-                //float preco_total = float.Parse(textBox6.Text) + (float.Parse(textBox12.Text) * differenceInDays);
-                //string preco_total_string = preco_total.ToString();
+                float preco_total = float.Parse(textBox6.Text) + (float.Parse(textBox12.Text) * differenceInDays);
+                string preco_total_string = preco_total.ToString();
 
-                //txtPrice.Text = preco_total_string;
+                txtPrice.Text = preco_total_string;
 
             }
             cn.Close();

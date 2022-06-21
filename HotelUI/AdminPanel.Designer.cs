@@ -164,7 +164,7 @@ namespace HotelUI
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(146, 44);
             this.button7.TabIndex = 12;
-            this.button7.Text = "Voltar";
+            this.button7.Text = "Log out";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
