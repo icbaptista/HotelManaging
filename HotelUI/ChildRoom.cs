@@ -537,17 +537,30 @@ namespace HotelUI
         {
             Room_Type room = new Room_Type();
             room = (Room_Type)listBox1.Items[currentRoomType];
-            count_Button_Add_Guest++;   
-            if (numericUpDown1.Value <= 0 || Int32.Parse(txtBeds.Text) == 0) // Se o número de guests é menor ou igual a 0, o buttao fica desativado
+    
+            if (numericUpDown1.Value < 0 || numericUpDown1.Value == count_Button_Add_Guest) // Se o número de guests é menor ou igual a 0, o buttao fica desativado
             {
                 button2.Enabled = false;
             }
             else
             {
+                count_Button_Add_Guest++; 
                 CriarPessoa_Guest();
                 GerarGuest();
                 GuestsAdicionados();
+                clearForms(); 
             }
+        }
+
+        private void clearForms()
+        {
+            textBox14.Text = "";
+            textBox15.Text = "";
+            textBox16.Text = "";
+            textBox17.Text = "";
+            textBox18.Text = "";
+            textBox19.Text = "";
+            textBox20.Text = "";
         }
 
         private void button4_Click(object sender, EventArgs e)

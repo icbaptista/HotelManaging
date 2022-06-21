@@ -23,6 +23,7 @@ namespace HotelUI
         {
             return new SqlConnection("Data Source=LAPTOP-8K6S8357;Initial Catalog=Hotel;Integrated Security=True");
         }
+       
 
         private bool verifySGBDConnection()
         {
@@ -46,6 +47,10 @@ namespace HotelUI
             buttonQuartos = false;
             buttonGuests = false;
             buttonReservors = false;
+            ShowReservas(); 
+        }
+
+        private void ShowReservas() {
             using (cn)
             {
                 cn.Open();
@@ -53,8 +58,7 @@ namespace HotelUI
                 DataTable dtbl = new DataTable();
                 sqlDa.Fill(dtbl);
 
-                dataGridReservation.DataSource = dtbl; 
-
+                dataGridReservation.DataSource = dtbl;
             }
         }
 
@@ -94,8 +98,8 @@ namespace HotelUI
             cmd.CommandText = "EXEC editar_reserva @reservaID, @date_in, @date_out";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@reservaID", textBox3.Text);
-            cmd.Parameters.AddWithValue("@date_in", textBox4.Text);
-            cmd.Parameters.AddWithValue("@date_out", textBox5.Text);
+            cmd.Parameters.AddWithValue("@date_in", DateTime.Parse(textBox4.Text));
+            cmd.Parameters.AddWithValue("@date_out", DateTime.Parse(textBox5.Text));
             cmd.Connection = cn;
 
             try
@@ -202,22 +206,27 @@ namespace HotelUI
 
         private void button5_Click(object sender, EventArgs e) // Botão eliminar
         {
-            if (buttonQuartos == true)
+            cn = getSGBDConnection();
+            using (cn)
             {
-                buttonQuartos = false;
-            }
-            else if (buttonGuests == true)
-            {
-                buttonGuests = false;
-            }
-            else if (buttonReservas == true)
-            {
-                buttonReservas = false;
-            }
-            else if (buttonReservors == true)
-            {
-                RemoveReservors();
-                buttonReservors = false;
+                cn.Open();
+                if (buttonQuartos == true)
+                {
+                    buttonQuartos = false;
+                }
+                else if (buttonGuests == true)
+                {
+                    buttonGuests = false;
+                }
+                else if (buttonReservas == true)
+                {
+                    buttonReservas = false;
+                }
+                else if (buttonReservors == true)
+                {
+                    RemoveReservors();
+                    buttonReservors = false;
+                }
             }
         }
 
@@ -233,22 +242,27 @@ namespace HotelUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (buttonQuartos == true)
+            cn = getSGBDConnection();
+            using (cn)
             {
-                buttonQuartos = false;
-            }
-            else if (buttonGuests == true)
-            {
-                buttonGuests = false;
-            }
-            else if (buttonReservas == true)
-            {
-                EditarReserva();
-                buttonReservas = false;
-            }
-            else if (buttonReservors == true)
-            {
-                buttonReservors = false;
+                cn.Open();
+                if (buttonQuartos == true)
+                {
+                    buttonQuartos = false;
+                }
+                else if (buttonGuests == true)
+                {
+                    buttonGuests = false;
+                }
+                else if (buttonReservas == true)
+                {
+                    EditarReserva();
+                    buttonReservas = false;
+                }
+                else if (buttonReservors == true)
+                {
+                    buttonReservors = false;
+                }
             }
         }
     }
