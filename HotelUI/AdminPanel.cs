@@ -17,6 +17,15 @@ namespace HotelUI
         public AdminPanel()
         {
             InitializeComponent();
+            groupBox1.Enabled = true;
+            groupBox2.Enabled = true;
+            button5.Enabled = true;
+            button3.Enabled = true;
+            buttonReservas = true;
+            buttonQuartos = false;
+            buttonGuests = false;
+            buttonReservors = false;
+            groupBox3.Visible = false;
         }
 
         private SqlConnection getSGBDConnection()
@@ -39,14 +48,15 @@ namespace HotelUI
         private void button1_Click(object sender, System.EventArgs e) // Reserva
         {
             cn = getSGBDConnection();
-            groupBox1.Enabled = false;
+            groupBox1.Enabled = true;
             groupBox2.Enabled = true;
-            button5.Enabled = false;
+            button5.Enabled = true;
             button3.Enabled = true;
             buttonReservas = true;
             buttonQuartos = false;
             buttonGuests = false;
             buttonReservors = false;
+            groupBox3.Visible = false;
             ShowReservas(); 
         }
 
@@ -54,7 +64,7 @@ namespace HotelUI
             using (cn)
             {
                 cn.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM Reservation", cn);
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT firstname, lastname, Reservation.reservation_ID, email, Reserved_Room.reserved_room_id, date_in, date_out, check_in, check_out FROM Person inner join (Reservor inner join (Reservation inner join Reserved_Room on Reservation.reservation_ID = Reserved_Room.reservation_ID) on reservor = reservor_id) on Person.CC = Reservor.CC", cn);
                 DataTable dtbl = new DataTable();
                 sqlDa.Fill(dtbl);
 
@@ -126,11 +136,13 @@ namespace HotelUI
             buttonReservas = false;
             buttonQuartos = true;
             buttonGuests = false;
-            buttonReservors = false;
+            groupBox3.Visible = true; 
+
+
             using (cn)
             {
                 cn.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM Reserved_Room", cn);
+                SqlDataAdapter sqlDa = new SqlDataAdapter("select * from Room join Room_Type on Room.room_type_id=Room_Type.room_type_id", cn);
                 DataTable dtbl = new DataTable();
                 sqlDa.Fill(dtbl);
 
@@ -149,7 +161,8 @@ namespace HotelUI
             buttonReservas = false;
             buttonQuartos = false;
             buttonGuests = true;
-            buttonReservors = false;
+            groupBox3.Visible = false;
+
             using (cn)
             {
                 cn.Open();
@@ -187,6 +200,7 @@ namespace HotelUI
             buttonQuartos = false;
             buttonGuests = false;
             buttonReservors = true;
+            groupBox3.Visible = false;
             using (cn)
             {
                 cn.Open();
@@ -219,10 +233,6 @@ namespace HotelUI
                     buttonGuests = false;
                 }
                 else if (buttonReservas == true)
-                {
-                    buttonReservas = false;
-                }
-                else if (buttonReservors == true)
                 {
                     RemoveReservors();
                     buttonReservors = false;
@@ -259,10 +269,54 @@ namespace HotelUI
                     EditarReserva();
                     buttonReservas = false;
                 }
-                else if (buttonReservors == true)
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            cn = getSGBDConnection();
+            using (cn)
+            {
+                cn.Open();
+                if (buttonQuartos == true)
                 {
-                    buttonReservors = false;
+                    EditarQuarto();
+                    buttonQuartos = false;
                 }
+                else if (buttonGuests == true)
+                {
+                    buttonGuests = false;
+                }
+                else if (buttonReservas == true)
+                {
+                    buttonReservas = false;
+                }
+            }
+        }
+
+        private void EditarQuarto()
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "EXEC editar_preço_quarto @tipoquartoID,  @novopreco";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@tipoquartoID", textBox8.Text);
+            cmd.Parameters.AddWithValue("@novopreco", float.Parse(textBox7.Text));
+            cmd.Connection = cn;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro a eliminar o Reservor. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
             }
         }
     }

@@ -35,6 +35,7 @@
             this.hotel_dropdown = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.DreamEscape_groupbox = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.description_box = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -56,7 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bell MT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(380, 152);
+            this.label1.Location = new System.Drawing.Point(465, 138);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 27);
             this.label1.TabIndex = 1;
@@ -66,7 +67,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(421, 65);
+            this.pictureBox2.Location = new System.Drawing.Point(514, 62);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(64, 62);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -78,7 +79,7 @@
             this.hotel_dropdown.FormattingEnabled = true;
             this.hotel_dropdown.Location = new System.Drawing.Point(141, 60);
             this.hotel_dropdown.Name = "hotel_dropdown";
-            this.hotel_dropdown.Size = new System.Drawing.Size(674, 28);
+            this.hotel_dropdown.Size = new System.Drawing.Size(1218, 28);
             this.hotel_dropdown.TabIndex = 4;
             this.hotel_dropdown.SelectedIndexChanged += new System.EventHandler(this.hotel_dropdown_SelectedIndexChanged);
             // 
@@ -93,21 +94,31 @@
             // 
             // DreamEscape_groupbox
             // 
+            this.DreamEscape_groupbox.Controls.Add(this.label2);
             this.DreamEscape_groupbox.Controls.Add(this.description_box);
             this.DreamEscape_groupbox.Controls.Add(this.pictureBox1);
             this.DreamEscape_groupbox.Controls.Add(this.pictureBox2);
             this.DreamEscape_groupbox.Controls.Add(this.label1);
             this.DreamEscape_groupbox.Location = new System.Drawing.Point(70, 117);
             this.DreamEscape_groupbox.Name = "DreamEscape_groupbox";
-            this.DreamEscape_groupbox.Size = new System.Drawing.Size(745, 306);
+            this.DreamEscape_groupbox.Size = new System.Drawing.Size(1289, 306);
             this.DreamEscape_groupbox.TabIndex = 6;
             this.DreamEscape_groupbox.TabStop = false;
             this.DreamEscape_groupbox.Text = "DreamEscape";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(465, 216);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "                ";
+            // 
             // description_box
             // 
             this.description_box.AutoSize = true;
-            this.description_box.Location = new System.Drawing.Point(421, 179);
+            this.description_box.Location = new System.Drawing.Point(465, 179);
             this.description_box.Name = "description_box";
             this.description_box.Size = new System.Drawing.Size(73, 20);
             this.description_box.TabIndex = 3;
@@ -121,7 +132,7 @@
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(881, 39);
+            this.label4.Size = new System.Drawing.Size(1414, 39);
             this.label4.TabIndex = 7;
             this.label4.Text = "Pick the accomodation of your dreams!";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -131,7 +142,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(881, 450);
+            this.ClientSize = new System.Drawing.Size(1414, 450);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.DreamEscape_groupbox);
             this.Controls.Add(this.label3);

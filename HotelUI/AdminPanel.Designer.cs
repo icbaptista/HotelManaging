@@ -37,10 +37,8 @@ namespace HotelUI
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,10 +51,18 @@ namespace HotelUI
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReservation)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -75,7 +81,7 @@ namespace HotelUI
             this.dataGridReservation.Name = "dataGridReservation";
             this.dataGridReservation.RowHeadersWidth = 51;
             this.dataGridReservation.RowTemplate.Height = 29;
-            this.dataGridReservation.Size = new System.Drawing.Size(815, 298);
+            this.dataGridReservation.Size = new System.Drawing.Size(767, 262);
             this.dataGridReservation.TabIndex = 4;
             // 
             // button1
@@ -98,7 +104,7 @@ namespace HotelUI
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1254, 104);
+            this.panel1.Size = new System.Drawing.Size(1272, 104);
             this.panel1.TabIndex = 6;
             // 
             // label1
@@ -108,7 +114,7 @@ namespace HotelUI
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1254, 104);
+            this.label1.Size = new System.Drawing.Size(1272, 104);
             this.label1.TabIndex = 0;
             this.label1.Text = "GESTÃO DAS RESERVAS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -130,9 +136,9 @@ namespace HotelUI
             // 
             this.button3.BackColor = System.Drawing.Color.SlateGray;
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(1050, 474);
+            this.button3.Location = new System.Drawing.Point(1030, 589);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 36);
+            this.button3.Size = new System.Drawing.Size(125, 44);
             this.button3.TabIndex = 8;
             this.button3.Text = "Editar";
             this.button3.UseVisualStyleBackColor = false;
@@ -142,34 +148,21 @@ namespace HotelUI
             // 
             this.button5.BackColor = System.Drawing.Color.SlateGray;
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(1050, 263);
+            this.button5.Location = new System.Drawing.Point(1030, 339);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(94, 36);
+            this.button5.Size = new System.Drawing.Size(123, 44);
             this.button5.TabIndex = 10;
-            this.button5.Text = "Eliminar";
+            this.button5.Text = "Checkout";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Teal;
-            this.button6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button6.Location = new System.Drawing.Point(344, 148);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(108, 43);
-            this.button6.TabIndex = 11;
-            this.button6.Text = "Guests";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.SlateGray;
             this.button7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button7.Location = new System.Drawing.Point(1031, 540);
+            this.button7.Location = new System.Drawing.Point(134, 585);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(146, 58);
+            this.button7.Size = new System.Drawing.Size(146, 44);
             this.button7.TabIndex = 12;
             this.button7.Text = "Voltar";
             this.button7.UseVisualStyleBackColor = false;
@@ -179,25 +172,13 @@ namespace HotelUI
             // 
             this.button8.BackColor = System.Drawing.Color.SlateGray;
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(134, 199);
+            this.button8.Location = new System.Drawing.Point(996, 137);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(142, 36);
+            this.button8.Size = new System.Drawing.Size(182, 44);
             this.button8.TabIndex = 13;
             this.button8.Text = "Fazer uma Reserva";
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.Teal;
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(449, 148);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(108, 43);
-            this.button9.TabIndex = 14;
-            this.button9.Text = "Reservors";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // groupBox1
             // 
@@ -206,7 +187,7 @@ namespace HotelUI
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Enabled = false;
-            this.groupBox1.Location = new System.Drawing.Point(955, 148);
+            this.groupBox1.Location = new System.Drawing.Point(950, 208);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(287, 109);
             this.groupBox1.TabIndex = 17;
@@ -255,7 +236,7 @@ namespace HotelUI
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(955, 305);
+            this.groupBox2.Location = new System.Drawing.Point(950, 403);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(287, 163);
             this.groupBox2.TabIndex = 18;
@@ -310,15 +291,86 @@ namespace HotelUI
             this.label3.TabIndex = 53;
             this.label3.Text = "ID da Reserva";
             // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Teal;
+            this.button6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button6.Location = new System.Drawing.Point(344, 148);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(108, 43);
+            this.button6.TabIndex = 11;
+            this.button6.Text = "Guests";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Controls.Add(this.textBox7);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.textBox8);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Location = new System.Drawing.Point(441, 525);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(419, 115);
+            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Alterar Preço do Quarto";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.SlateGray;
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.Location = new System.Drawing.Point(271, 35);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(125, 44);
+            this.button4.TabIndex = 20;
+            this.button4.Text = "Alterar ";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(119, 73);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(125, 27);
+            this.textBox7.TabIndex = 56;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 76);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 20);
+            this.label8.TabIndex = 55;
+            this.label8.Text = "Novo Preço";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(119, 32);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(125, 27);
+            this.textBox8.TabIndex = 54;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 35);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(113, 20);
+            this.label9.TabIndex = 53;
+            this.label9.Text = "ID da Tipologia";
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1254, 619);
+            this.ClientSize = new System.Drawing.Size(1272, 671);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -338,6 +390,8 @@ namespace HotelUI
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,7 +406,6 @@ namespace HotelUI
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
@@ -368,5 +421,12 @@ namespace HotelUI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label9;
     }
 }
