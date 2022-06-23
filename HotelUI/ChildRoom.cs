@@ -114,15 +114,13 @@ namespace HotelUI
             cn.Close();
         }
 
-        internal void receiveData(Guest g)
-        {
-            listBox2.Items.Add(g.ToString());
-        }
 
         private void calculoNoitesEprecoTotal()
         {
             if (!verifySGBDConnection())
                 return;
+
+            SqlCommand cmdd = new SqlCommand();
 
             SqlCommand cmd = new SqlCommand("Select * FROM (Room_Type INNER JOIN Package ON Room_Type.room_type_id = Package.room_type_id) FULL JOIN Reservation ON Package.package_ID = Reservation.package_ID WHERE (Room_Type.room_type_id = @RoomType) AND (Package.package_ID = @PackageID) ORDER BY Room_Type.room_price, Package.package_price;", cn);
             cmd.Parameters.AddWithValue("@RoomType", ((Room_Type) listBox1.Items[currentRoomType]).room_type_id);
@@ -147,7 +145,7 @@ namespace HotelUI
 
             }
             cn.Close();
-
+            
         }
 
         private void QuartosDisponíveis()

@@ -56,6 +56,7 @@ namespace HotelUI
                 A.rating = reader["rating"].ToString();
                 hotel_dropdown.Items.Add(A);
                 description_box.Text = A.descrição.ToString();
+                label2.Text = "Rating: " + A.rating; 
             }
             cn.Close();
         }

@@ -50,7 +50,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(250, 535);
+            this.panelMenu.Size = new System.Drawing.Size(250, 953);
             this.panelMenu.TabIndex = 0;
             // 
             // button4
@@ -61,7 +61,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(0, 445);
+            this.button4.Location = new System.Drawing.Point(0, 863);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(250, 90);
             this.button4.TabIndex = 4;
@@ -117,7 +117,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(250, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(858, 90);
+            this.panel1.Size = new System.Drawing.Size(1432, 90);
             this.panel1.TabIndex = 1;
             // 
             // lblTitle
@@ -127,7 +127,7 @@
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(858, 90);
+            this.lblTitle.Size = new System.Drawing.Size(1432, 90);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "RESERVAS";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -137,14 +137,14 @@
             this.panelDesktopPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktopPane.Location = new System.Drawing.Point(250, 90);
             this.panelDesktopPane.Name = "panelDesktopPane";
-            this.panelDesktopPane.Size = new System.Drawing.Size(858, 445);
+            this.panelDesktopPane.Size = new System.Drawing.Size(1432, 863);
             this.panelDesktopPane.TabIndex = 2;
             // 
             // Booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1108, 535);
+            this.ClientSize = new System.Drawing.Size(1682, 953);
             this.Controls.Add(this.panelDesktopPane);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);

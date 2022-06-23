@@ -15,9 +15,18 @@ namespace HotelUI
       
             private Button currentButton;
             private Form activeForm;
+        private Form favoritechildForm; 
             public Booking()
             {
                 InitializeComponent();
+                favoritechildForm = new ChildHotel();
+                favoritechildForm.TopLevel = false;
+                favoritechildForm.FormBorderStyle = FormBorderStyle.None;
+                favoritechildForm.Dock = DockStyle.Fill;
+                this.panelDesktopPane.Controls.Add(favoritechildForm);
+                this.panelDesktopPane.Tag = favoritechildForm;
+                favoritechildForm.BringToFront();
+                favoritechildForm.Show();
             }
 
             private void button4_Click(object sender, EventArgs e)
@@ -34,10 +43,8 @@ namespace HotelUI
 
             private void button3_Click(object sender, EventArgs e)
             {
-                ChildRoom form = new ChildRoom();
-                form.Show();
-                this.Hide();
-            }
+            OpenChildForm(new ChildRoom(), sender);
+        }
 
             private void OpenChildForm(Form childForm, object btnSender)
             {
