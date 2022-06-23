@@ -58,7 +58,6 @@ namespace HotelUI
         public void ControlosGuest() // Meter tudo só readOnly
         {
             button2.Visible = true;
-            button3.Visible = true;
             groupBox4.Visible = true;
             groupBox5.Visible = true;
         }

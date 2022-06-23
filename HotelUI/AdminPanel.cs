@@ -64,7 +64,7 @@ namespace HotelUI
             using (cn)
             {
                 cn.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT firstname, lastname, Reservation.reservation_ID, email, Reserved_Room.reserved_room_id, date_in, date_out, check_in, check_out FROM Person inner join (Reservor inner join (Reservation inner join Reserved_Room on Reservation.reservation_ID = Reserved_Room.reservation_ID) on reservor = reservor_id) on Person.CC = Reservor.CC", cn);
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT firstname, lastname, Reservation.reservation_ID, email, Reserved_Room.reserved_room_id, date_in, date_out, check_in, check_out, Reservation.reservor, Reservor.CC FROM Person inner join (Reservor inner join (Reservation inner join Reserved_Room on Reservation.reservation_ID = Reserved_Room.reservation_ID) on reservor = reservor_id) on Person.CC = Reservor.CC", cn);
                 DataTable dtbl = new DataTable();
                 sqlDa.Fill(dtbl);
 

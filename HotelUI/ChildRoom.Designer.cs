@@ -72,8 +72,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.pay_mastercard = new System.Windows.Forms.PictureBox();
             this.pay_visa = new System.Windows.Forms.PictureBox();
             this.pay_paypal = new System.Windows.Forms.PictureBox();
@@ -533,28 +531,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Silver;
-            this.button3.Location = new System.Drawing.Point(1077, 714);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(138, 66);
-            this.button3.TabIndex = 81;
-            this.button3.Text = "Reservar";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Visible = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Silver;
-            this.button4.Location = new System.Drawing.Point(12, 736);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(231, 44);
-            this.button4.TabIndex = 82;
-            this.button4.Text = "Voltar";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // pay_mastercard
             // 
             this.pay_mastercard.Image = ((System.Drawing.Image)(resources.GetObject("pay_mastercard.Image")));
@@ -881,8 +857,6 @@
             this.Controls.Add(this.pay_mastercard);
             this.Controls.Add(this.pay_visa);
             this.Controls.Add(this.pay_paypal);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.button1);
@@ -984,7 +958,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PictureBox pay_mastercard;
         private System.Windows.Forms.PictureBox pay_visa;
